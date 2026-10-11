@@ -16,7 +16,7 @@ Requires host API `^1.15.0` (`board:broadcast`, client `onMessage` and `api.requ
 
 ## Install
 
-In the wrangler's Extensions tab, install from this repository's git URL and consent to its one capability, `board:broadcast`.
+In the wrangler's Extensions tab, install from `https://github.com/goldstraw/wrangler-usage-limits.git` and consent to its one capability, `board:broadcast`.
 
 ## Develop
 

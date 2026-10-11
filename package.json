@@ -15,9 +15,14 @@
     "author": "Charlie Goldstraw",
     "requires": [
       "board:broadcast"
-    ]
+    ],
+    "homepage": "https://github.com/goldstraw/wrangler-usage-limits"
   },
   "engines": {
     "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/goldstraw/wrangler-usage-limits.git"
   }
 }

@@ -81,6 +81,7 @@ export default {
   description: 'A bar above the board showing how much of your Claude 5-hour and weekly usage limits you have used, and when each resets.',
   help: 'Reads the claude.ai login Claude Code already has (~/.claude/.credentials.json, or the macOS keychain) and asks Anthropic for the account\'s usage, the same figures /usage shows. Each meter\'s fill is the share of the limit used; the thin tick is how far through the window you are, so a fill past the tick means you are using it faster than it resets.',
   author: 'Charlie Goldstraw',
+  homepage: 'https://github.com/goldstraw/wrangler-usage-limits',
   defaultEnabled: true,
   dir,
   requires: ['board:broadcast'],
