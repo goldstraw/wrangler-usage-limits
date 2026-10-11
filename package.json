@@ -1,0 +1,23 @@
+{
+  "name": "wrangler-usage-limits",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A bar above the Agent Wrangler board tracking your Claude 5-hour and weekly usage limits, as an installable extension",
+  "license": "Apache-2.0",
+  "scripts": {
+    "test": "node --test 'server/*.test.js' 'public/*.test.js'"
+  },
+  "wranglerExtension": {
+    "id": "usage-limits",
+    "label": "Claude usage limits",
+    "description": "A bar above the board showing how much of your Claude 5-hour and weekly usage limits you have used, and when each resets.",
+    "author": "Charlie Goldstraw",
+    "requires": [
+      "board:broadcast"
+    ]
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

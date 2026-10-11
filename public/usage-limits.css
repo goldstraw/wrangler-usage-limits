@@ -1,0 +1,47 @@
+/* The usage bar above the board. Everything that shows it lives here, so
+   removing this sheet (turning the extension off) hides the bar and returns
+   #grid's space with no script involved. --usage-limits-h is the gap the bar
+   sits in; #grid's own 14px padding lines the meters up with the tiles. */
+main.usage-limits-on { position: relative; --usage-limits-h: 30px; }
+#grid.usage-limits-on { margin-top: var(--usage-limits-h); }
+/* Search, extension views and the maximised terminal hide #grid; the bar goes
+   with it and the margin is moot. */
+
+#usage-limits-bar[hidden] {
+  display: flex;
+  position: absolute; top: 0; z-index: 2;
+  height: var(--usage-limits-h); box-sizing: border-box;
+  padding: 10px 14px 0;
+  align-items: center; gap: 22px;
+  font-size: 12px; color: var(--fg-muted);
+  user-select: none; cursor: default;
+}
+#usage-limits-bar.usage-limits-away { display: none; }
+
+.usage-limits-meter { display: flex; align-items: center; gap: 8px; flex: 1 1 0; min-width: 0; max-width: 440px; }
+.usage-limits-label { color: var(--fg); font-weight: 600; white-space: nowrap; }
+.usage-limits-track {
+  position: relative; flex: 1 1 auto; min-width: 60px; height: 8px;
+  border-radius: 4px; background: var(--surface-2); border: 1px solid var(--border-muted);
+  overflow: hidden;
+}
+.usage-limits-fill { height: 100%; border-radius: 4px 0 0 4px; background: var(--blue); transition: width 300ms ease; }
+.usage-limits-meter.tone-warn .usage-limits-fill { background: var(--warn); }
+.usage-limits-meter.tone-danger .usage-limits-fill { background: var(--red); }
+/* How far through the window we are: fill past this line means spending faster
+   than the window resets. */
+.usage-limits-tick {
+  position: absolute; top: -1px; bottom: -1px; width: 2px; margin-left: -1px;
+  background: var(--fg-muted); opacity: 0.8;
+}
+.usage-limits-pct { font-variant-numeric: tabular-nums; color: var(--fg); min-width: 3ch; text-align: right; }
+.usage-limits-meter.tone-warn .usage-limits-pct { color: var(--warn-fg); }
+.usage-limits-meter.tone-danger .usage-limits-pct { color: var(--red-fg); }
+.usage-limits-reset { white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--fg-subtle); }
+.usage-limits-note { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.usage-limits-error { color: var(--warn-fg); }
+#usage-limits-bar.is-stale .usage-limits-meter { opacity: 0.6; }
+
+/* A narrow board (window or a wide terminal pane): drop the countdowns before
+   the meters. The class is set from #grid's width in placeBar. */
+#usage-limits-bar.is-narrow .usage-limits-reset { display: none; }
